@@ -5,6 +5,9 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
+  trailingSlash: true,
+  assetPrefix: '',
+  basePath: '',
 };
 
 export default nextConfig;
