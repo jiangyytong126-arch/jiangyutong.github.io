@@ -17,9 +17,9 @@ export default function HomePage() {
 
       <div className="mx-auto max-w-4xl px-4 py-8 lg:py-12">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 lg:px-0">
-          {/* 左侧：头像 + email + CV + icons */}
+          {/* 左侧：头像 + email + CV + icons，居中对齐 */}
           <aside className="lg:col-span-4 space-y-6">
-            <div className="p-6">
+            <div className="flex flex-col items-center p-6 text-center">
               <div className="aspect-square w-full max-w-[150px] overflow-hidden rounded-full bg-slate-200">
                 <div className="flex h-full w-full items-center justify-center text-4xl font-semibold text-slate-500">
                   {initialsFromName(bio.name)}
@@ -42,7 +42,7 @@ export default function HomePage() {
                   </p>
                 ))}
               </div>
-              <div className="mt-4 flex flex-wrap gap-2 text-slate-600">
+              <div className="mt-4 flex flex-wrap justify-center gap-2 text-slate-600">
                 {bio.social.map((link) => (
                   <a
                     key={link.label}
@@ -60,10 +60,10 @@ export default function HomePage() {
           </aside>
 
           {/* 右侧：与导航右边缘(Awards)对齐 */}
-          <div className="lg:col-span-8 w-full min-w-0 space-y-8">
+          <div className="lg:col-span-8 w-full min-w-0 space-y-14">
             {/* Research Interest — 大块段落 */}
             <section>
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-black">
+              <h2 className="mb-3 text-base font-semibold uppercase tracking-wider text-black">
                 Research Interest
               </h2>
               <div className="p-4 text-sm leading-relaxed text-slate-700">
@@ -73,7 +73,7 @@ export default function HomePage() {
 
             {/* News — 日期 + 标题 */}
             <section id="news">
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-black">
+              <h2 className="mb-3 text-base font-semibold uppercase tracking-wider text-black">
                 News
               </h2>
               <div className="space-y-2">
@@ -88,7 +88,7 @@ export default function HomePage() {
 
             {/* Publication — 小图 + 标题 / 会议 / 作者 */}
             <section id="publications">
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-black">
+              <h2 className="mb-3 text-base font-semibold uppercase tracking-wider text-black">
                 Publication
               </h2>
               <div className="space-y-4">
@@ -116,7 +116,7 @@ export default function HomePage() {
 
             {/* Internship */}
             <section id="internship">
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-black">
+              <h2 className="mb-3 text-base font-semibold uppercase tracking-wider text-black">
                 Internship
               </h2>
               <ul className="space-y-2 text-sm text-slate-700">
@@ -134,7 +134,7 @@ export default function HomePage() {
 
             {/* Honors and Awards */}
             <section id="awards">
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-black">
+              <h2 className="mb-3 text-base font-semibold uppercase tracking-wider text-black">
                 Honors and Awards
               </h2>
               <ul className="space-y-1 text-sm text-slate-700">
