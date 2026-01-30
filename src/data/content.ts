@@ -14,17 +14,22 @@ export interface SocialLink {
 
 export interface Bio {
   name: string;
-  title: string;
-  affiliation: string;
-  location: string;
+  title?: string;
+  affiliation?: string;
+  location?: string;
   email: string;
-  shortBio: string;
+  shortBio?: string;
+  /** 研究兴趣段落（右侧大块文字） */
+  researchInterestText: string;
+  /** CV 链接，可多个（如中/英） */
+  cvLinks: { label: string; href: string }[];
   social: SocialLink[];
 }
 
 export interface NewsItem {
-  date: string; // ISO 或自然语言日期
-  text: string;
+  date: string;
+  title: string;
+  text?: string;
 }
 
 export interface Publication {
@@ -55,6 +60,12 @@ export const bio: Bio = {
   email: "you@example.edu",
   shortBio:
     "I am a human–computer interaction researcher focusing on interactive systems, creativity support tools, and AI-augmented interfaces. My work combines qualitative studies with prototype-driven experimentation.",
+  researchInterestText:
+    "My research focuses on human–computer interaction (HCI), creativity support tools, and human–AI collaboration. I am interested in interactive data visualization, design tools, and prototyping methods that combine qualitative studies with iterative design.",
+  cvLinks: [
+    { label: "CV (English)", href: "#" },
+    { label: "CV (中文)", href: "#" },
+  ],
   social: [
     {
       label: "Email",
@@ -71,32 +82,13 @@ export const bio: Bio = {
       href: "https://github.com/yourname",
       platform: "github",
     },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/yourname",
-      platform: "linkedin",
-    },
-    {
-      label: "Personal Blog",
-      href: "https://yourwebsite.com",
-      platform: "website",
-    },
   ],
 };
 
 export const news: NewsItem[] = [
-  {
-    date: "2026-01",
-    text: "One paper on AI-assisted prototyping was accepted to CHI 2026.",
-  },
-  {
-    date: "2025-10",
-    text: "Started a research internship at Example Research Lab, working on multimodal creativity support tools.",
-  },
-  {
-    date: "2025-06",
-    text: "Gave an invited talk on human-centered evaluation of generative models at Example HCI Seminar.",
-  },
+  { date: "2024.1.2", title: "New paper accepted to CHI 2026.", text: "One paper on AI-assisted prototyping was accepted to CHI 2026." },
+  { date: "2025.10", title: "Research internship at Example Research Lab.", text: "Started a research internship, working on multimodal creativity support tools." },
+  { date: "2025.06", title: "Invited talk at Example HCI Seminar.", text: "Human-centered evaluation of generative models." },
 ];
 
 export const researchInterests: string[] = [
@@ -171,4 +163,10 @@ export const experiences: ExperienceItem[] = [
     year: "2024",
   },
 ];
+
+export const internships: ExperienceItem[] = experiences.filter((e) => e.type === "internship");
+export const awards: ExperienceItem[] = experiences.filter((e) => e.type === "award");
+
+/** 研究兴趣段落（用于右侧大块文字） */
+export const researchInterestText: string = bio.researchInterestText;
 
